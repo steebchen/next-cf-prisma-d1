@@ -1,0 +1,33 @@
+name: lint
+on: push
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v4
+      - name: Install pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 8
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Get pnpm store directory
+        id: pnpm-cache
+        run: |
+          echo "pnpm_cache_dir=$(pnpm store path)" >> "$GITHUB_ENV"
+      - name: Cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.npm
+            ${{ env.pnpm_cache_dir }}
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-nextjs-
+      - name: Install dependencies
+        run: pnpm install
+      - name: Lint
+        run: pnpm lint
