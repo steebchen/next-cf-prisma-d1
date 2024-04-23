@@ -1,0 +1,64 @@
+{
+  "extends": [
+    "airbnb",
+    "prettier",
+    "next/core-web-vitals"
+  ],
+  "plugins": [
+    "import",
+    "eslint-plugin-next-on-pages"
+  ],
+  "rules": {
+    "semi": [
+      "error",
+      "never"
+    ],
+    "camelcase": "off",
+    "no-void": "off",
+    "no-await-in-loop": "off",
+    "no-restricted-syntax": "off",
+    "import/prefer-default-export": "off",
+    "react/prop-types": "off",
+    "react/jsx-filename-extension": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react/no-unused-prop-types": "off",
+    "react/react-in-jsx-scope": "off",
+    "react/require-default-props": "off",
+    "react/jsx-no-target-blank": "off",
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "ts": "never",
+        "tsx": "never",
+        "js": "never",
+        "jsx": "never"
+      }
+    ],
+    "quotes": "off",
+    "no-use-before-define": "off",
+    "max-len": "off",
+    "no-continue": "off",
+    "no-unused-vars": "warn",
+    "jsx-a11y/anchor-is-valid": [
+      "error",
+      {
+        "components": [
+          "Link"
+        ],
+        "specialLink": [
+          "hrefLeft",
+          "hrefRight"
+        ],
+        "aspects": [
+          "invalidHref",
+          "preferButton"
+        ]
+      }
+    ],
+    "react/jsx-one-expression-per-line": [
+      0
+    ],
+    "react/function-component-definition": "off"
+  }
+}

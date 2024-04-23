@@ -1,0 +1,29 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["driverAdapters"]
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Poll {
+  id        String   @id @default(uuid())
+  createdAt DateTime @default(now()) @map("created_at")
+  views     Int      @default(1)
+  title     String
+  rows      Row[]
+
+  @@map("poll")
+}
+
+model Row {
+  id     String @id @default(uuid())
+  title  String
+  votes  Int    @default(0)
+  poll   Poll   @relation(fields: [pollId], references: [id])
+  pollId String @map("poll_id")
+
+  @@map("row")
+}
