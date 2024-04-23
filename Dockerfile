@@ -1,4 +1,4 @@
-FROM node:20.12.2-alpine
+FROM node:21.7.3-alpine
 
 RUN apk add --no-cache tini curl python3
 ENTRYPOINT ["/sbin/tini", "--"]
