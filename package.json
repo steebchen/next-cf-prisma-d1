@@ -24,7 +24,7 @@
     "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
   },
   "dependencies": {
-    "@cloudflare/next-on-pages": "1.11.0",
+    "@cloudflare/next-on-pages": "1.11.1",
     "@cloudflare/workers-types": "^4.20240419.0",
     "@headlessui/react": "1.7.19",
     "@heroicons/react": "2.1.3",
